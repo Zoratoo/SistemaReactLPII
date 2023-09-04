@@ -39,7 +39,7 @@ export default function FormCadProduto(props) {
                                 label="Quantidade:"
                                 className="mb-3"
                             >
-                                <Form.Control type="text" placeholder="000" id="qtd" name="qtd  "/>
+                                <Form.Control type="text" placeholder="000" id="qtd" name="qtd  " />
                             </FloatingLabel>
                         </Form.Group>
                     </Col>
@@ -62,7 +62,9 @@ export default function FormCadProduto(props) {
                         <Button type="submit" variant={"info"}>Cadastrar</Button>
                     </Col>
                     <Col>
-                      <Button type="submit" variant={"secondary"}>Voltar</Button>
+                        <Button type="submit" variant={"secondary"} onClick={() => {
+                            props.exibirFormulario(false);
+                        }}>Voltar</Button>
                     </Col>
                 </Row>
             </Form>

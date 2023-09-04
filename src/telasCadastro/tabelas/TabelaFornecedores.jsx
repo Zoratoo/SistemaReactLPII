@@ -1,9 +1,11 @@
 import { Container, Table, Button } from "react-bootstrap";
 
-export default function TabelaFornecedores(props){
-    return(
+export default function TabelaFornecedores(props) {
+    return (
         <Container>
-            <Button type="button">Novo Fornecedor</Button>
+            <Button type="button" onClick={() => {
+                props.exibirFormulario(true);
+            }}>Novo Fornecedor</Button>
             <Table striped bordered hover>
                 <thead>
                     <tr>

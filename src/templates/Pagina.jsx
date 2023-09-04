@@ -16,6 +16,5 @@ export default function Pagina(props) {
             </div>
             <Rodape conteudo="Rua X, 10 - Vila - Presidente Prudente/SP - CNPJ: 00.000.000/0001-00"/>
         </>
-
     );
 }

@@ -2,7 +2,9 @@ import {Container, Table, Button} from "react-bootstrap";
 export default function TabelaClientes(props) {
     return (
         <Container>
-            <Button type="button">Novo Cliente</Button>
+            <Button type="button" onClick={()=>{
+                props.exibirFormulario(true);
+            }}>Novo Cliente</Button>
             <Table striped bordered hover>
                 <thead>
                     <tr>

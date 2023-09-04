@@ -2,7 +2,9 @@ import {Container, Table, Button} from "react-bootstrap";
 export default function TabelaCategorias(props) {
     return (
         <Container>
-            <Button type="button">Nova Categoria</Button>
+            <Button type="button" onClick={()=>{
+                props.exibirFormulario(true);
+            }}>Nova Categoria</Button>
             <Table striped bordered hover>
                 <thead>
                     <tr>
