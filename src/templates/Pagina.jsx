@@ -3,7 +3,6 @@ import Rodape from "./Rodape";
 import Menu from "./Menu";
 
 export default function Pagina(props) {
-    //Snippet - componente coringa react
     return (
         <>
             <Cabecalho conteudo="Sistema de Vendas de Roupas" />

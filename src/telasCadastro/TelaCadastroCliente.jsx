@@ -12,7 +12,6 @@ export default function TelaCadastroCliente(props) {
                 {
                     exibirFormulario ? <FormCadCliente exibirFormulario={setExibirFormulario}/> : <TabelaClientes exibirFormulario={setExibirFormulario}/>
                 }
-
             </Pagina>
         </Container>
 
