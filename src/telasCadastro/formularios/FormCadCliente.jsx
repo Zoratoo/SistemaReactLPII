@@ -17,7 +17,6 @@ export default function FormCadCliente(props) {
 
     function manipularMudancas(e){
         const componente = e.currentTarget;
-        console.log(componente.value)
         setCliente({...cliente,[componente.name]:componente.value});
     }
 
@@ -29,6 +28,8 @@ export default function FormCadCliente(props) {
             //mandar os dados para o backend
             setCliente(estadoInicialCliente);
             setFormValidado(false);
+            props.exibirFormulario(false);
+            props.adicionarCliente(cliente);
         }
         else{
             setFormValidado(true);
@@ -90,11 +91,11 @@ export default function FormCadCliente(props) {
                                 onChange={manipularMudancas}
                                 value={cliente.estadoCivil}
                                 requerid>
-                                <option value="solteiro" selected>Solteiro</option>
-                                <option value="casado">Casado</option>
-                                <option value="separado">Separado</option>
-                                <option value="divorciado">Divorciado</option>
-                                <option value="viuvo">Viúvo</option>
+                                <option value="Solteiro" selected>Solteiro</option>
+                                <option value="Casado">Casado</option>
+                                <option value="Separado">Separado</option>
+                                <option value="Divorciado">Divorciado</option>
+                                <option value="Viuvo">Viúvo</option>
 
                             </Form.Select>
                         </FloatingLabel>
@@ -245,10 +246,7 @@ export default function FormCadCliente(props) {
                         <Button type="submit" variant={"primary"}>Cadastrar</Button>
                     </Col>
                     <Col md={6} offset={5}>
-                        <Button type="button" variant={"secondary"} onClick={() => {
-                                props.exibirFormulario(false)
-                            }
-                        }>Voltar</Button>
+                        <Button type="button" variant={"secondary"}>Voltar</Button>
                     </Col>
                 </Row>
             </Form>

@@ -1,15 +1,16 @@
-import {Container, Table, Button} from "react-bootstrap";
+import { Container, Table, Button } from "react-bootstrap";
 export default function TabelaClientes(props) {
     return (
         <Container>
-            <Button type="button" onClick={()=>{
+            <Button type="button" onClick={() => {
                 props.exibirFormulario(true);
             }}>Novo Cliente</Button>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>CPF</th>
                         <th>Nome Completo</th>
+                        <th>CPF</th>
+                        <th>Estado Civil</th>
                         <th>Endereço</th>
                         <th>Cidade/UF</th>
                         <th>CEP</th>
@@ -18,15 +19,18 @@ export default function TabelaClientes(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>000.000.000-00</td>
-                        <td>João da Silva</td>
-                        <td>Rua X</td>
-                        <td>Presidente Prudente/SP</td>
-                        <td>19019-000</td>
-                        <td>Vila Nova</td>
-                        <td>15</td>
-                    </tr>
+                    {props.listaClientes.map((cliente, index) => (
+                        <tr key={index}>
+                            <td>{cliente.nome}</td>
+                            <td>{cliente.cpf}</td>
+                            <td>{cliente.estadoCivil}</td>
+                            <td>{cliente.endereco}</td>
+                            <td>{cliente.cidade}/{cliente.uf}</td>
+                            <td>{cliente.cep}</td>
+                            <td>{cliente.bairro}</td>
+                            <td>{cliente.numero}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </Table>
         </Container>

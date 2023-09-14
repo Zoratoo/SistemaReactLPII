@@ -6,14 +6,19 @@ import { Container } from "react-bootstrap";
 
 export default function TelaCadastroCliente(props) {
     const [exibirFormulario, setExibirFormulario] = useState(false);
+    const [listaClientes, setListaClientes] = useState([]);
+
+    function adicionarCliente(cliente) {
+        setListaClientes([...listaClientes, cliente]);
+      }
+
     return (
         <Container>
             <Pagina>
                 {
-                    exibirFormulario ? <FormCadCliente exibirFormulario={setExibirFormulario}/> : <TabelaClientes exibirFormulario={setExibirFormulario}/>
+                    exibirFormulario ? <FormCadCliente exibirFormulario={setExibirFormulario} adicionarCliente={adicionarCliente}/> : <TabelaClientes exibirFormulario={setExibirFormulario} listaClientes={listaClientes}/>
                 }
             </Pagina>
         </Container>
-
     );
 }
