@@ -7,16 +7,42 @@ import { Container } from "react-bootstrap";
 export default function TelaCadastroCliente(props) {
     const [exibirFormulario, setExibirFormulario] = useState(false);
     const [listaClientes, setListaClientes] = useState([]);
+    const [clienteParaEdicao, setClienteParaEdicao] = useState({
+        nome: '',
+        cpf: '',
+        estadoCivil: 'solteiro',
+        endereco: '',
+        numero: '',
+        bairro: '',
+        cidade: '',
+        uf: 'SP',
+        cep: ''
+    })
+    const [modoEdicao, setModoEdicao] = useState(false);
 
-    function adicionarCliente(cliente) {
-        setListaClientes([...listaClientes, cliente]);
-      }
 
     return (
         <Container>
             <Pagina>
                 {
-                    exibirFormulario ? <FormCadCliente exibirFormulario={setExibirFormulario} adicionarCliente={adicionarCliente}/> : <TabelaClientes exibirFormulario={setExibirFormulario} listaClientes={listaClientes}/>
+                    exibirFormulario ?
+                        <FormCadCliente
+                            exibirFormulario={setExibirFormulario}
+                            listaClientes={listaClientes}
+                            setListaClientes={setListaClientes}
+                            clienteParaEdicao={clienteParaEdicao}
+                            setClienteParaEdicao={setClienteParaEdicao}
+                            modoEdicao={modoEdicao}
+                            setModoEdicao={setModoEdicao}
+                        />
+                        :
+                        <TabelaClientes
+                            exibirFormulario={setExibirFormulario}
+                            listaClientes={listaClientes}
+                            setListaClientes={setListaClientes}
+                            clienteParaEdicao={clienteParaEdicao}
+                            setClienteParaEdicao={setClienteParaEdicao}
+                        />
                 }
             </Pagina>
         </Container>
