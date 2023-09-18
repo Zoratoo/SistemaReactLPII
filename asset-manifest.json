@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SistemaReactLPII/static/css/main.99e4cf39.css",
+    "main.js": "/SistemaReactLPII/static/js/main.f832797c.js",
+    "index.html": "/SistemaReactLPII/index.html",
+    "main.99e4cf39.css.map": "/SistemaReactLPII/static/css/main.99e4cf39.css.map",
+    "main.f832797c.js.map": "/SistemaReactLPII/static/js/main.f832797c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99e4cf39.css",
+    "static/js/main.f832797c.js"
+  ]
+}
