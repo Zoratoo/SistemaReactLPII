@@ -42,6 +42,8 @@ export default function TelaCadastroCliente(props) {
                             setListaClientes={setListaClientes}
                             clienteParaEdicao={clienteParaEdicao}
                             setClienteParaEdicao={setClienteParaEdicao}
+                            modoEdicao={modoEdicao}
+                            setModoEdicao={setModoEdicao}
                         />
                 }
             </Pagina>

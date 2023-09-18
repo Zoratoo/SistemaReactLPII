@@ -4,6 +4,17 @@ export default function FormCadCliente(props) {
     const estadoInicialCliente = props.clienteParaEdicao;
     const [cliente, setCliente] = useState(estadoInicialCliente);
     const [formValidado, setFormValidado] = useState(false);
+    const clienteVazio = {
+        nome: '',
+        cpf: '',
+        estadoCivil: 'solteiro',
+        endereco: '',
+        numero: '',
+        bairro: '',
+        cidade: '',
+        uf: 'SP',
+        cep: ''
+    }
 
     function manipularMudancas(e) {
         const componente = e.currentTarget;
@@ -23,19 +34,9 @@ export default function FormCadCliente(props) {
                 //filtra e adiciona
                 props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
                 props.setModoEdicao(false);
-                props.setClienteParaEdicao({
-                    nome: '',
-                    cpf: '',
-                    estadoCivil: 'solteiro',
-                    endereco: '',
-                    numero: '',
-                    bairro: '',
-                    cidade: '',
-                    uf: 'SP',
-                    cep: ''
-                });
+                props.setClienteParaEdicao(clienteVazio);
             }
-            setCliente(estadoInicialCliente);
+            setCliente(clienteVazio);
             setFormValidado(false);
         }
         else {
@@ -251,7 +252,6 @@ export default function FormCadCliente(props) {
                 <Row>
                     <Col md={6} offset={5} className="d-flex justify-content-end">
                         <Button type="submit" variant={"primary"} onClick={() => {
-
                         }}>{props.modoEdicao ? "Alterar" : "Cadastrar"}</Button>
                     </Col>
                     <Col md={6} offset={5}>
