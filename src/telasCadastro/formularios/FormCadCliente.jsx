@@ -30,8 +30,13 @@ export default function FormCadCliente(props) {
             //mandar os dados para o backend
             if (!props.modoEdicao) {
                 props.setListaClientes([...props.listaClientes, cliente]);
-            } else {
+                props.setMensagem('Cliente incluído com sucesso');
+                props.setTipoMensagem('success');
+                props.setMostrarMensagem(true);
+            }
+            else {
                 //filtra e adiciona
+                // TENTAR ARRUMAR A VERIFICACAO PRA CPF QUE FOI MODIFICADO PARA NAO CRIAR UM NOVO
                 props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
                 props.setModoEdicao(false);
                 props.setClienteParaEdicao(clienteVazio);
