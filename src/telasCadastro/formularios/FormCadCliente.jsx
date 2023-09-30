@@ -23,7 +23,6 @@ export default function FormCadCliente(props) {
 
 
     function manipularSubmissao(e) {
-        console.log(cliente)
         const form = e.currentTarget;
         if (form.checkValidity()) {
             //todos os campos preenchidos

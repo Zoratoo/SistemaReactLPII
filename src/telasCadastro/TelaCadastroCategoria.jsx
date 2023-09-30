@@ -5,7 +5,7 @@ import FormCadCategoria from "./formularios/FormCadCategoria";
 import Pagina from "../templates/Pagina";
 
 export default function TelaCadastroCategoria(props){
-    const [exibirFormulario, setExibirFormulario] = useState(0);
+    const [exibirFormulario, setExibirFormulario] = useState(false);
     return(
         <Container>
             <Pagina>
