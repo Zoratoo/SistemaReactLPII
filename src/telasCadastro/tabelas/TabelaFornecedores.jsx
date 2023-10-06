@@ -16,7 +16,7 @@ export default function TabelaFornecedores(props) {
 
     return (
         <Container>
-            <Button type="button" onClick={() => {
+            <Button type="button" style={{marginBottom: '20px'}} onClick={() => {
                 props.exibirFormulario(true);
             }}>Novo Fornecedor</Button>
             <Table striped bordered hover>

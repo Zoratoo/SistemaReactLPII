@@ -15,7 +15,7 @@ export default function TabelaProdutos(props) {
     }
     return (
         <Container>
-            <Button type="button" onClick={() => {
+            <Button type="button" style={{marginBottom: '20px'}} onClick={() => {
                 props.exibirFormulario(true);
             }}>Novo Produto</Button>
             <Table striped bordered hover>
