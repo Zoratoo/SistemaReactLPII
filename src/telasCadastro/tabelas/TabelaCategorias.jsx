@@ -4,7 +4,7 @@ export default function TabelaCategorias(props) {
         if(window.confirm('Deseja realmente excluir esta categoria?')){
             props.setListaCategorias(
                 props.listaCategorias.filter((categLista => categLista.nome !== categoria.nome))
-             );
+            );
         }
     }
     function editarCategoria(categoria){
@@ -14,7 +14,7 @@ export default function TabelaCategorias(props) {
     }
     return (
         <Container>
-            <Button type="button" onClick={()=>{
+            <Button type="button" style={{marginBottom: '20px'}} onClick={()=>{
                 props.exibirFormulario(true);
             }}>Nova Categoria</Button>
             <Table striped bordered hover>

@@ -22,19 +22,25 @@ export default function FormCadCategoria(props) {
                 props.setMensagem('Categoria incluída com sucesso');
                 props.setTipoMensagem('success');
                 props.setMostrarMensagem(true);
+                setCategoria(categoriaVazia);
             } else {
                 // Atualize a categoria existente na lista de categorias
-                const novaListaCategorias = props.listaCategorias.map((itemCateg) => {
-                    if (itemCateg.nome === props.categoriaParaEdicao.nome) {
-                        return categoria; // Substitua a categoria antiga pela nova
-                    }
-                    return itemCateg;
-                });
-                props.setListaCategorias(novaListaCategorias);
-                props.setModoEdicao(false);
-                props.setCategoriaParaEdicao(categoriaVazia);
-            }
-            setCategoria(categoriaVazia);
+                if(window.confirm('Deseja realmente alterar esta categoria?')) {
+                    const novaListaCategorias = props.listaCategorias.map((itemCateg) => {
+                        if (itemCateg.nome === props.categoriaParaEdicao.nome) {
+                            return categoria; // Substitua a categoria antiga pela nova
+                        }
+                        return itemCateg;
+                    });
+                    props.setListaCategorias(novaListaCategorias);
+                    props.setMensagem('Categoria alterada com sucesso');
+                    props.setTipoMensagem('success');
+                    props.setMostrarMensagem(true);
+                    props.setModoEdicao(false);
+                    props.setCategoriaParaEdicao(categoriaVazia);
+                    setCategoria(categoriaVazia);
+                }
+            }      
             setFormValidado(false);
         } else {
             setFormValidado(true);

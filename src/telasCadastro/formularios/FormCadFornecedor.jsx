@@ -28,13 +28,19 @@ export default function FormCadFornecedor(props) {
                 props.setMensagem('Fornecedor incluído com sucesso');
                 props.setTipoMensagem('success');
                 props.setMostrarMensagem(true);
+                setFornecedor(fornecedorVazio);
             }
             else {
-                props.setListaFornecedores([...props.listaFornecedores.filter((itemFornecedor) => itemFornecedor.cnpj !== fornecedor.cnpj), fornecedor]);
-                props.setModoEdicao(false);
-                props.setFornecedorParaEdicao(fornecedorVazio);
+                if(window.confirm('Deseja realmente alterar este fornecedor?')) {
+                    props.setListaFornecedores([...props.listaFornecedores.filter((itemFornecedor) => itemFornecedor.cnpj !== fornecedor.cnpj), fornecedor]);
+                    props.setMensagem('Fornecedor alterado com sucesso');
+                    props.setTipoMensagem('success');
+                    props.setMostrarMensagem(true);
+                    props.setModoEdicao(false);
+                    props.setFornecedorParaEdicao(fornecedorVazio);
+                    setFornecedor(fornecedorVazio);
+                }
             }
-            setFornecedor(fornecedorVazio);
             setFormValidado(false);
         }
         else {

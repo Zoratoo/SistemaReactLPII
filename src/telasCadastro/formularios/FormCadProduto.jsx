@@ -24,13 +24,19 @@ export default function FormCadProduto(props) {
                 props.setMensagem('Produto incluído com sucesso');
                 props.setTipoMensagem('success');
                 props.setMostrarMensagem(true);
+                setProduto(produtoVazio);
             }
             else {
-                props.setListaProdutos([...props.listaProdutos.filter((itemProd) => itemProd.nome !== itemProd.nome), produto]);
-                props.setModoEdicao(false);
-                props.setProdutoParaEdicao(produtoVazio);
+                if(window.confirm('Deseja realmente alterar este produto?')) {
+                    props.setListaProdutos([...props.listaProdutos.filter((itemProd) => itemProd.nome !== itemProd.nome), produto]);
+                    props.setMensagem('Produto alterado com sucesso');
+                    props.setTipoMensagem('success');
+                    props.setMostrarMensagem(true);
+                    props.setModoEdicao(false);
+                    props.setProdutoParaEdicao(produtoVazio);
+                    setProduto(produtoVazio);
+                }
             }
-            setProduto(produtoVazio);
             setFormValidado(false);
         }
         else {

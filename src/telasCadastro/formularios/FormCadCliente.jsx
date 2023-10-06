@@ -32,15 +32,21 @@ export default function FormCadCliente(props) {
                 props.setMensagem('Cliente incluído com sucesso');
                 props.setTipoMensagem('success');
                 props.setMostrarMensagem(true);
+                setCliente(clienteVazio);
             }
             else {
                 //filtra e adiciona
                 // TENTAR ARRUMAR A VERIFICACAO PRA CPF QUE FOI MODIFICADO PARA NAO CRIAR UM NOVO
-                props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
-                props.setModoEdicao(false);
-                props.setClienteParaEdicao(clienteVazio);
-            }
-            setCliente(clienteVazio);
+                if(window.confirm('Deseja realmente alterar este cliente?')) {
+                    props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
+                    props.setMensagem('Cliente alterado com sucesso');
+                    props.setTipoMensagem('success');
+                    props.setMostrarMensagem(true);
+                    props.setModoEdicao(false);
+                    props.setClienteParaEdicao(clienteVazio);
+                    setCliente(clienteVazio);
+                }
+            }        
             setFormValidado(false);
         }
         else {

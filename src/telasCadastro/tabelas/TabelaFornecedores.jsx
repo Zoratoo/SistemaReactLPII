@@ -5,7 +5,7 @@ export default function TabelaFornecedores(props) {
         if(window.confirm('Deseja realmente excluir este fornecedor?')){
             props.setListaFornecedores(
                 props.listaFornecedores.filter((fornecedorLista => fornecedorLista.cnpj !== fornecedor.cnpj))
-             );
+            );
         }
     }
     function editarFornecedor(fornecedor){

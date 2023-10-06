@@ -4,7 +4,7 @@ export default function TabelaClientes(props) {
         if(window.confirm('Deseja realmente excluir este cliente?')){
             props.setListaClientes(
                 props.listaClientes.filter((clienteLista => clienteLista.cpf !== cliente.cpf))
-             );
+            );
         }
     }
     function editarCliente(cliente){

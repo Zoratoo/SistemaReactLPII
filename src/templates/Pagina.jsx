@@ -7,7 +7,7 @@ export default function Pagina(props) {
         <>
             <Cabecalho conteudo="Sistema de Vendas de Roupas" />
             <Menu />
-            <div>
+            <div style={{margin: '20px',}}>
                 {
                     //Filhos da página = props children
                 }
